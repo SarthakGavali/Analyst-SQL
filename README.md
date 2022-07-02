@@ -9,7 +9,7 @@ The Rockbuster Stealth Management Board has asked a series of business questions
 ● Which countries are Rockbuster customers based in?
 ● Where are customers with a high lifetime value based?
 ● Do sales figures vary between geographic regions?
-## we performed complex  SQL queries and come up with insights thst were presented to the stakeholders through visualizations using Tableau Story boards.
+## we performed complex  SQL queries and come up with insights that were presented to the stakeholders through visualizations using Tableau Story boards.
 ### DATASETS:
 (http://www.postgresqltutorial.com/wp-content/uploads/2019/05/dvdrental.zip)
 ## The Rockbuster Tableau story board:
