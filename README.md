@@ -12,3 +12,5 @@ The Rockbuster Stealth Management Board has asked a series of business questions
 ## we performed complex  SQL queries and come up with insights thst were presented to the stakeholders through visualizations using Tableau Story boards.
 ### DATASETS:
 (http://www.postgresqltutorial.com/wp-content/uploads/2019/05/dvdrental.zip)
+## The Rockbuster Tableau story board:
+(https://public.tableau.com/app/profile/sarthak.gavali/viz/TheRockbusterStory/Story1)
