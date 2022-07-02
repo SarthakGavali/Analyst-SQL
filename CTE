@@ -1,0 +1,10 @@
+#creating CTE table for countries with top 5 customers for Rockbusters
+The Query is as follows:
+ First we defined the CTE table and gave it a name amt_paid_cte. We shall use this CTE name for referring the table that we created using this query.
+Then we used the main Query wherein we first selected the count of customers by country from the CTE table(E) and named it as top_customer_count because it gives count of 
+number of people from a country in the top 5, 
+then we selected the count of customers by country from the payment table and named it all_customer_count since it gives the number of all customers from a country.
+We then grouped them by country because we want the counts by country and ordered 
+them in a descending order by top_customer_counts so as to get first the countries with 
+customers in the top 5.
+
