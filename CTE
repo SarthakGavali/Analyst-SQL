@@ -1,10 +1,36 @@
 #creating CTE table for countries with top 5 customers for Rockbusters
-The Query is as follows:
- First we defined the CTE table and gave it a name amt_paid_cte. We shall use this CTE name for referring the table that we created using this query.
+##The Query is as follows:
+/*Using CTE to get a table of top 5 countries where top 5 customers by amount paid reside*/
+WITH amt_paid_cte AS (SELECT B.customer_id,first_name,last_name,D.city,E.country,SUM(amount) AS amount_paid FROM payment A 
+INNER JOIN customer B ON A.customer_id=B.customer_id
+INNER JOIN address C ON B.address_id=C.address_id INNER JOIN city D ON C.city_id=D.city_id
+INNER JOIN country E ON D.country_id=E.country_id
+WHERE D.city IN ('Aurora','Tokat','Tarsus','Atlixco','Emeishan','Pontianak','Shimoga','Aparecida de Goinia','Zalatun','Taguig')
+GROUP BY B.customer_id,first_name,last_name,city,country
+ORDER BY amount_paid DESC
+LIMIT 5) ------------->Defining AMT_paid_cte of top 5 customers by joining the the payment,customer,address,city and country tables
+SELECT D.country,COUNT(DISTINCT(E.customer_id))AS top_customer_count,COUNT(DISTINCT(A.customer_id))AS all_customer_count FROM customer A
+INNER JOIN address B ON A.address_id=B.address_id INNER JOIN city C ON B.city_id=C.city_id
+INNER JOIN country D ON C.country_id=D.country_id 
+LEFT JOIN amt_paid_cte E ON D.country=E.country -----> left join to get the countries of top cities
+GROUP BY D.country,E.country ------------------>Group the customer count by country
+ORDER BY top_customer_count DESC----------------> Ordering by customer count
+LIMIT 5 ----------------> to get the top 5 countries
+
+##Explanation:
+First we defined the CTE table and gave it a name amt_paid_cte. We shall use this CTE name for referring the table that we created using this query.
 Then we used the main Query wherein we first selected the count of customers by country from the CTE table(E) and named it as top_customer_count because it gives count of 
 number of people from a country in the top 5, 
 then we selected the count of customers by country from the payment table and named it all_customer_count since it gives the number of all customers from a country.
 We then grouped them by country because we want the counts by country and ordered 
 them in a descending order by top_customer_counts so as to get first the countries with 
 customers in the top 5.
+
+## The final table:
+country	       top_customer_count	   all_customer_count
+Mexico                   	  1	                     30
+Turkey	                     1	                     15
+China                      	1	                     53
+United States              	1	                     36
+Indonesia                  	1	                     14
 
